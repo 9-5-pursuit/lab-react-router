@@ -1,22 +1,31 @@
 import "./Nav.css";
+import React from "react";
 
+//link tag is called from rreact router dom
+import { Link } from "react-router-dom";
+
+//a tags need to be switched with link tags
 function Nav() {
   return (
     <header>
       <article>
         <h1>
-          <a href="/">
-            Northwest <span>Animal Hospital</span>
-          </a>
+        <Link to="/">
+         Northwest <span>Animal Hospital</span>
+        </Link>
         </h1>
       </article>
       <aside>
         <ul>
           <li>
-            <a href="/staff">All Staff</a>
+          <Link to="/staff-list">
+            All Staff
+          </Link>
           </li>
           <li>
-            <a href="/pets">All Pets</a>
+          <Link to="/pet-list">
+            All Pets
+          </Link>
           </li>
         </ul>
       </aside>
