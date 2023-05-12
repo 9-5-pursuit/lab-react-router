@@ -9,7 +9,6 @@ function Nav() {
           <h1>
             Northwest <span>Animal Hospital</span>
           </h1>
-
         </Link>
 
       </article>
@@ -21,12 +20,11 @@ function Nav() {
             </li>
 
           </Link>
-
-          <li>
-            <Link to='/pets/'>
-              All Pets
-            </Link>
-          </li>
+          <Link to='/pets'>
+            <li>
+              <a>All Pets</a>
+            </li>
+          </Link>
         </ul>
       </aside>
     </header>
