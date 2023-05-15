@@ -7,10 +7,11 @@ export const StaffList = ({ employees }) => {
   ));
 
   return (
-    <section className="staff-list">
-      <h2>Our Staff</h2>
-      <div className="staffers">{staff}</div>
-    </section>
+        <section className="staff-list">
+          <h2>Our Staff</h2>
+          <div className="staffers">{staff}</div>
+        </section>
+
   );
 };
 
