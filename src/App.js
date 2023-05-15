@@ -32,11 +32,16 @@ function App() {
         {/* Nav and footer go in the router but outside the routes */}
        <Nav />
        <Routes>
+        {/* path="/" is directed to home by default */}
         <Route path="/" element={<Home employees={employees} owners={owners} pets={pets} />} />
         <Route path="/staff-list" element={<StaffList employees={employees} />} />
-        <Route path="/pet-list" element={<PetsList pets={pets} />} />
-        <Route path="/pets/cats" element={<PetsList pets={pets} />} />
-        <Route path="/pets/dogs" element={<PetsList pets={pets} />} />
+
+        {/* The pets are nested inside pet-list */}
+        <Route path="/pets" element={<PetsList pets={pets} />}>
+          <Route path="cats" element={<PetsList pets={pets} />} />
+          <Route path="dogs" element={<PetsList pets={pets} />} />
+        </Route>
+
        </Routes>
        <Footer />
       </Router>

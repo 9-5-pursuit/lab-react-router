@@ -1,8 +1,11 @@
+//link tag is called from rreact router dom
+//Navlink allows you to know which link you are currently on. On css the .active-link allows to costomize 
+import { Link, NavLink } from "react-router-dom";
 import "./Nav.css";
 import React from "react";
 
-//link tag is called from rreact router dom
-import { Link } from "react-router-dom";
+
+
 
 //a tags need to be switched with link tags
 function Nav() {
@@ -10,6 +13,8 @@ function Nav() {
     <header>
       <article>
         <h1>
+          {/* page looks better when the logo isn't highlighted black when on the home page
+          so ypu leave the logo as a link bc there will be no changes when clicked on */}
         <Link to="/">
          Northwest <span>Animal Hospital</span>
         </Link>
@@ -18,14 +23,14 @@ function Nav() {
       <aside>
         <ul>
           <li>
-          <Link to="/staff-list">
+          <NavLink to="/staff-list" className={({ isActive }) => (isActive ? "active-link" : "")}>
             All Staff
-          </Link>
+          </NavLink>
           </li>
           <li>
-          <Link to="/pet-list">
+          <NavLink to="/pets" className={({ isActive }) => (isActive ? "active-link" : "")}> 
             All Pets
-          </Link>
+          </NavLink>
           </li>
         </ul>
       </aside>
