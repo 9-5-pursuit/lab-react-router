@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 /*
   Components
@@ -12,7 +13,8 @@ import PetsList from "./components/pets/PetsList";
 /*
   Data
   ---------------
-  Note: Normally this data would be pulled from an API. It is not necessary, however, for this application.
+  Note: Normally this data would be pulled from an API. 
+  YIt is not necessary, however, for this application.
 */
 import { employeeData } from "./data/employees.js";
 import { ownerData } from "./data/owners";
@@ -25,11 +27,24 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Nav />
-      <Home employees={employees} owners={owners} pets={pets} />
-      <StaffList employees={employees} />
-      <PetsList pets={pets} />
-      <Footer />
+      <Router>
+        <Nav />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home employees={employees} owners={owners} pets={pets} />}
+          ></Route>
+
+          <Route
+            path="/staff"
+            element={<StaffList employees={employees} />}
+          ></Route>
+
+          <Route path="/pets/" element={<PetsList pets={pets} />}></Route>
+          <Route path="/pets/:kind" element={<PetsList pets={pets} />}></Route>
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }
