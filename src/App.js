@@ -1,4 +1,7 @@
 import { useState } from "react";
+// to use router, you have to import it from the installed react router dom below
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 /*
   Components
@@ -25,11 +28,23 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Nav />
-      <Home employees={employees} owners={owners} pets={pets} />
-      <StaffList employees={employees} />
-      <PetsList pets={pets} />
-      <Footer />
+      <Router>
+        {/* Nav and footer go in the router but outside the routes */}
+       <Nav />
+       <Routes>
+        {/* path="/" is directed to home by default */}
+        <Route path="/" element={<Home employees={employees} owners={owners} pets={pets} />} />
+        <Route path="/staff-list" element={<StaffList employees={employees} />} />
+
+        {/* The pets are nested inside pet-list */}
+        <Route path="/pets" element={<PetsList pets={pets} />}>
+          <Route path="cats" element={<PetsList pets={pets} />} />
+          <Route path="dogs" element={<PetsList pets={pets} />} />
+        </Route>
+
+       </Routes>
+       <Footer />
+      </Router>
     </div>
   );
 }
