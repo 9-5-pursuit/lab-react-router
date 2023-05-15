@@ -8,6 +8,7 @@ import Footer from "./components/common/Footer";
 import Home from "./components/home/Home";
 import StaffList from "./components/staff/StaffList";
 import PetsList from "./components/pets/PetsList";
+import NotFound from "./components/common/NotFound";
 import { Navigate, BrowserRouter as Router, Route, Routes, BrowserRouter } from "react-router-dom";
 
 /*
@@ -32,6 +33,7 @@ function App() {
           <Route path='/pets/:p' element={<PetsList pets={pets} />} />
           <Route path='/pets' element={<Navigate replace to='/pets/cats' />} />
           <Route path='/staff' element={<StaffList employees={employees} />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

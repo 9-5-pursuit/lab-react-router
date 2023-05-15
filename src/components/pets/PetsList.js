@@ -16,23 +16,21 @@ export const PetsList = ({ pets }) => {
 
   return (
     <section className="pets-wrapper">
-        <PetsListNav cats={cats} dogs={dogs} />
+      <PetsListNav cats={cats} dogs={dogs} />
+      <section className="pets-list">
+        {/* All cats section */}
+
+        {p === 'cats' && cats.map((cat) => (
+          <Pet key={cat.id} kind="cat" pet={cat} />
+        ))}
+
+        {p === 'dogs' && dogs.map((dog) => (
+          <Pet key={dog.id} kind="dog" pet={dog} />
+        ))}
 
 
-        <section className="pets-list">
-          {/* All cats section */}
-
-              {p==='cats' && cats.map((cat) => (
-                <Pet key={cat.id} kind="cat" pet={cat} />
-              ))}
-
-              {p==='dogs' && dogs.map((dog) => (
-                <Pet key={dog.id} kind="dog" pet={dog} />
-              ))}
-
-
-          {/* All dogs section */}
-        </section>
+        {/* All dogs section */}
+      </section>
     </section>
 
   );

@@ -1,30 +1,34 @@
+import { NavLink, Link } from "react-router-dom";
 import "./Nav.css";
-import { Link } from "react-router-dom";
 
 function Nav() {
   return (
     <header>
       <article>
-        <Link to='/'>
-          <h1>
+        <h1>
+          <Link to="/">
             Northwest <span>Animal Hospital</span>
-          </h1>
-        </Link>
-
+          </Link>
+        </h1>
       </article>
       <aside>
         <ul>
-          <Link to='/staff'>
-            <li>
+          <li>
+            <NavLink
+              to="/staff"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
               All Staff
-            </li>
-
-          </Link>
-          <Link to='/pets'>
-            <li>
-              <a>All Pets</a>
-            </li>
-          </Link>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/pets"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              All Pets
+            </NavLink>
+          </li>
         </ul>
       </aside>
     </header>
