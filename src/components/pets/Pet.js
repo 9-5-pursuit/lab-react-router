@@ -6,8 +6,8 @@ const iconMap = {
 };
 
 export const Pet = ({ kind, pet }) => {
-  console.log(kind);
-  console.log(pet);
+  // console.log(kind);
+  // console.log(pet);
   const icon = iconMap[kind];
   return (
     <article key={pet?.id}>
