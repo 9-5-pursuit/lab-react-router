@@ -1,3 +1,4 @@
+// import { useLocation } from "react-router-dom";
 import PetsListNav from "./PetsListNav";
 import Pet from "./Pet";
 import "./PetsList.css";
@@ -14,18 +15,15 @@ export const PetsList = ({ pets }) => {
 
   return (
     <section className="pets-wrapper">
+      {/* Using Pet component with key, kind, and pet props for dogs*/}
       <PetsListNav cats={cats} dogs={dogs} />
-      <section className="pets-list">
-        {/* All cats section */}
-        {cats.map((cat) => (
-          <Pet key={cat.id} kind="cat" pet={cat} />
-        ))}
-
-        {/* All dogs section */}
-        {dogs.map((dog) => (
-          <Pet key={dog.id} kind="dog" pet={dog} />
-        ))}
-      </section>
+      {dogs.map((dog) => (
+        <Pet key={dog.id} kind="dog" pet={dog} />
+      ))}
+      {/* Using Pet component with key, kind, and pet props for cats */}
+      {cats.map((cat) => (
+        <Pet key={cat.id} kind="cat" pet={cat} />
+      ))}
     </section>
   );
 };
