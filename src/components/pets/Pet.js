@@ -1,6 +1,9 @@
+import React from "react";
 import "./Pet.css";
+import PetsList from "./PetsList";
+import PetsListNav from "./PetsListNav";
 
-const iconMap = {
+export const iconMap = {
   cat: "🐈",
   dog: "🐕",
 };
