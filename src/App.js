@@ -37,6 +37,7 @@ function App() {
             path="/staff"
             element={<StaffList employees={employees} />}
           ></Route>
+          {/* <Route path="/pets/:kind" element={<PetsList pets={pets} />}></Route> */}
           <Route path="/pets" element={<PetsList pets={pets} />}>
             <Route path="dogs" element={<PetsList pets={pets} />} />
             <Route path="cats" element={<PetsList pets={pets} />} />

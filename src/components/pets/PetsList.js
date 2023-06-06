@@ -2,10 +2,11 @@ import PetsListNav from "./PetsListNav";
 import Pet from "./Pet";
 import "./PetsList.css";
 import { useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export const PetsList = ({ pets }) => {
   const { pathname } = useLocation();
-
+  //const { navigate } = useNavigate();
   //console.log(pathname);
 
   const [cats, dogs] = pets.reduce(
@@ -26,12 +27,18 @@ export const PetsList = ({ pets }) => {
           ))}
         </>
       );
-    } else if (pathName === "/pets/cats") {
+    } else if (pathName === "/pets/dogs") {
       return (
         <>
           {dogs.map((dog) => (
             <Pet key={dog.id} kind="dog" pet={dog} />
           ))}
+        </>
+      );
+    } else if (pathName === "/pets") {
+      return (
+        <>
+          <Navigate to="/pets/cats" />
         </>
       );
     } else {
@@ -52,15 +59,7 @@ export const PetsList = ({ pets }) => {
   return (
     <section className="pets-wrapper">
       <PetsListNav cats={cats} dogs={dogs} />
-      <section className="pets-list">
-        {handleUrl(pathname)}
-        {/* {cats.map((cat) => (
-          <Pet key={cat.id} kind="cat" pet={cat} />
-        ))}
-        {dogs.map((dog) => (
-          <Pet key={dog.id} kind="dog" pet={dog} />
-        ))} */}
-      </section>
+      <section className="pets-list">{handleUrl(pathname)}</section>
     </section>
   );
 };
